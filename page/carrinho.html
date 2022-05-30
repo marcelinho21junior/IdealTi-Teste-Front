@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>IdealTI</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="" id="app">
+        <input type="checkbox" id="check">
+        <!--header começo-->
+        <header>
+            <label for="check">
+                <ion-icon name="menu-outline" id="sidebar_btn"></ion-icon>
+            </label>
+            <div class="left">
+                <h3>Ideal <span>TI</span></h3>
+            </div>
+            <div class="right">
+                <a href="#" class="sair_btn" v-on:click='msgSair'>Sair</a>
+            </div>
+        </header>
+        <!--header final-->
+        <!--sidebar começo-->
+        <div class="sidebar">
+            <center>
+                <img src="image/img-1.jpg" class="image" alt="">
+                <h2>IdealTI</h2>
+            </center>
+            <a href="../index.html"><ion-icon name="desktop-outline"></ion-icon><span>Painel</span></a>
+            <a href="./Pedido.html"><ion-icon name="calendar-clear-outline"></ion-icon><span>Pedido</span></a>
+            <a href="./carrinho.html"><ion-icon name="car-outline"></ion-icon><span>Carrinho</span></a>
+        </div>
+        <!--sidebar final-->
+        <div class="content"></div>
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                msg:"oiiii",
+                infos: []
+            },
+            mounted(){
+                axios
+                    .get('https://fakestoreapi.com/products')
+                    .then(response => this.infos = response.data)
+            },
+            methods: {
+                msgSair:function(){
+                    alert('BTN SAIR ainda não funciona!')
+                }
+            }
+        })
+    </script>  
+</body>
+</html>
