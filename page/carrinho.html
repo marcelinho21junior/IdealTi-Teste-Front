@@ -5,39 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./Carrinho.css">
     <title>IdealTI</title>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="" id="app">
-        <input type="checkbox" id="check">
-        <!--header começo-->
-        <header>
-            <label for="check">
-                <ion-icon name="menu-outline" id="sidebar_btn"></ion-icon>
-            </label>
-            <div class="left">
-                <h3>Ideal <span>TI</span></h3>
-            </div>
-            <div class="right">
-                <a href="#" class="sair_btn" v-on:click='msgSair'>Sair</a>
-            </div>
-        </header>
-        <!--header final-->
-        <!--sidebar começo-->
-        <div class="sidebar">
-            <center>
-                <img src="image/img-1.jpg" class="image" alt="">
-                <h2>IdealTI</h2>
-            </center>
-            <a href="../index.html"><ion-icon name="desktop-outline"></ion-icon><span>Painel</span></a>
-            <a href="./Pedido.html"><ion-icon name="calendar-clear-outline"></ion-icon><span>Pedido</span></a>
-            <a href="./carrinho.html"><ion-icon name="car-outline"></ion-icon><span>Carrinho</span></a>
+    <div class="contentIndex" id="pedido">
+        <div class="menu">
+            <nav>
+                <ul>
+                  <li><a href="../index.html">Página inicial</a></li>
+                  <li><a href="./Pedido.html">Pedido</a></li>
+                  <li><a href="./carrinho.html">Contato</a></li>
+                </ul>
+              </nav>
+              img
         </div>
-        <!--sidebar final-->
-        <div class="content"></div>
+        <div class="contentIndexInfo contentPedido">
+            <h1 class="headerTitle">Carrinho</h1>
+            <div class="contentCarrinho">
+                <div class="contentCarrinhoTitleItens">
+                    <span>Nome</span>
+                    <span>Descrição</span>
+                    <span>Vr.Unitário</span>
+                    <span>Qtd</span>
+                    <span>Total</span>
+                    <span>Total</span>
+                </div>
+                <div class="contentCarrinhoAllItens">
+                    <div class="contentCarrinhoItens">
+                        <span>Nome</span>
+                        <span>Descrição</span>
+                        <span>Vr.Unitário</span>
+                        <span>Qtd</span>
+                        <span>Total</span>
+                        <span><button class="contentCarrinhoItensBtnX">X</button><button class="contentCarrinhoItensBtnE">Edit</button></span>
+                    </div>
+                    
+                </div>
+                <div  class="contentCarrinhoButtonFinal">
+                    <button>Finalizar</button>
+                </div>
+            </div>
+            <span class="footerTitle">@Marcelo Junior</span>
+        </div>
     </div>
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -45,19 +58,16 @@
 
     <script>
         var app = new Vue({
-            el:'#app',
+            el:'#pedido',
             data: {
-                msg:"oiiii",
-                infos: []
-            },
-            mounted(){
-                axios
-                    .get('https://fakestoreapi.com/products')
-                    .then(response => this.infos = response.data)
+                msg:"oiiii21",
             },
             methods: {
-                msgSair:function(){
-                    alert('BTN SAIR ainda não funciona!')
+                msgSave:function(){
+                    alert('BTN SAVE')
+                },
+                msgFinish:function(){
+                    alert('BTN Finish')
                 }
             }
         })

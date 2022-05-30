@@ -12,13 +12,13 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div class="contentIndex" id="app">
+    <div class="contentIndex" id="pedido">
         <div class="menu">
             <nav>
                 <ul>
                   <li><a href="../index.html">Página inicial</a></li>
                   <li><a href="./page/Pedido.html">Pedido</a></li>
-                  <li><a href="#">Contato</a></li>
+                  <li><a href="./carrinho.html">Contato</a></li>
                 </ul>
               </nav>
               img
@@ -34,12 +34,12 @@
                     <span>Quantidade</span>
                     <input type="number" placeholder="Quantidade do produto">
                 </div>
-                <div>
-                    <button>Salvar</button>
-                    <button>Finalizar</button>
+                <div class="contentPedidoButtons">
+                    <button v-on:click="msgSave" class="save">Salvar</button>
+                    <button v-on:click="msgFinish" class="finish">Finalizar</button>
                 </div>
             </div>
-            <span class="footerTitle">Footer</span>
+            <span class="footerTitle">@Marcelo Junior</span>
         </div>
     </div>
     
@@ -48,20 +48,16 @@
 
     <script>
         var app = new Vue({
-            el:'#app',
+            el:'#pedido',
             data: {
                 msg:"oiiii21",
-                infos: []
-            },
-            mounted(){
-                axios
-                    .get('https://fakestoreapi.com/products/')
-                    .then(response => this.infos = response.data)
-                    
             },
             methods: {
-                msgSair:function(){
-                    alert('BTN SAIR ainda não funciona!')
+                msgSave:function(){
+                    alert('BTN SAVE')
+                },
+                msgFinish:function(){
+                    alert('BTN Finish')
                 }
             }
         })
