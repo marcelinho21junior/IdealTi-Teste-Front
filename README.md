@@ -1,6 +1,4 @@
 # IdealTi-Teste-Front
-
-# Clone do site Netflix
 ![NPM](https://img.shields.io/npm/l/react)
 
 # Sobre o projeto
