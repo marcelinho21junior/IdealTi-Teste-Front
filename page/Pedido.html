@@ -17,7 +17,7 @@
             <nav>
                 <ul>
                   <li><a href="../index.html">Página inicial</a></li>
-                  <li><a href="./page/Pedido.html">Pedido</a></li>
+                  <li><a href="./Pedido.html">Pedido</a></li>
                   <li><a href="./carrinho.html">Contato</a></li>
                 </ul>
               </nav>
@@ -27,16 +27,17 @@
             <h1 class="headerTitle">Pedido</h1>
             <div class="contentPedidoCadaster">
                 <div class="contentPedidoCadasterInputs">
-                    <span>Name</span>
-                    <input type="text" placeholder="Nome do produto">
+                    <span>Produto</span>
+                    <select v-model="form.nameProd" value="resInfo" id="produtsTitle">
+                        <option v-for="info in infos">{{info.title}}</option>
+                    </select>
                 </div>
                 <div class="contentPedidoCadasterInputs">
                     <span>Quantidade</span>
-                    <input type="number" placeholder="Quantidade do produto">
+                    <input type="number" placeholder="Quantidade do produto" v-model="form.qtdProd">
                 </div>
                 <div class="contentPedidoButtons">
-                    <button v-on:click="msgSave" class="save">Salvar</button>
-                    <button v-on:click="msgFinish" class="finish">Finalizar</button>
+                    <button v-on:click="msgSave" class="save">Cadastrar</button>
                 </div>
             </div>
             <span class="footerTitle">@Marcelo Junior</span>
@@ -49,15 +50,24 @@
     <script>
         var app = new Vue({
             el:'#pedido',
-            data: {
-                msg:"oiiii21",
+            data(){
+                return{
+                    form:{
+                        nameProd:this.resInfo,
+                        qtdProd:'',
+                    },
+                    infos: []
+                }
+            },
+            mounted(){
+                axios
+                    .get('https://fakestoreapi.com/products/')
+                    .then(response => this.infos = response.data)
+                    
             },
             methods: {
                 msgSave:function(){
-                    alert('BTN SAVE')
-                },
-                msgFinish:function(){
-                    alert('BTN Finish')
+                    console.log(this.form)
                 }
             }
         })
