@@ -110,6 +110,11 @@ select{
     background-color: aliceblue;
 }
 
+.cards img{
+    height: 100px;
+    width: 100px;
+}
+
 .headerTitle{
     display: flex;
     justify-content: center;
@@ -117,6 +122,16 @@ select{
     height: 10%;
     width: 100%;
     background-color: #00BCD4;
+}
+
+.cardsTitle{
+    font-weight: 600;
+}
+
+.cardsInfoRate{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
 }
 
 .footerTitle{
